@@ -1,0 +1,39 @@
+# Local environments and caches
+.venv/
+.idea/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+.env
+.env.*
+
+# Local validation, generated binaries and archives
+.verification/
+docs/
+build/
+dist/
+*.spec
+*.exe
+*.zip
+*.7z
+
+# Private WeChat data and export results
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.wal
+*.shm
+*.wav
+*.csv
+*.json
+*.png
+*.jpg
+*.jpeg
+*.log
+*.lock
+settings.json
