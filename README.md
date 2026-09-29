@@ -15,6 +15,8 @@
 
 ## 使用
 
+收藏导出需要另外安装 [WeFlow](https://github.com/hicccc77/WeFlow)，请从其项目页面查看安装与使用说明。WeFlow 是独立项目，不包含在本工具的下载包中；只合并现有 WAV 时无需安装 WeFlow。
+
 运行打包后的 `微信收藏语音工具.exe`，按界面选择本机 WeFlow 程序、账号目录和导出目录；首次连接需要在 WeFlow 窗口自行解锁。扫描前建议正常退出微信，避免收藏数据库在复制时变化。完整步骤、取消与续导说明见[使用说明](使用说明.md)。
 
 只需合并现有文件时，在“合并现有语音”选择 WAV 文件夹、顺序及输出位置即可。
@@ -37,7 +39,7 @@ py -3.12 -m venv .venv
 .\package_source.ps1
 ```
 
-`build.ps1` 会先执行测试和窗口自检，再生成 `dist\微信收藏语音工具.exe`。窗口自检需要 Windows 图形会话。`package_source.ps1` 默认在项目的上一级目录生成 `wechat-favorites-tool-source.zip`，只收入脚本列明的源码、测试和公开说明。上传前仍应检查压缩包内容及个人修改过的源文件。
+`build.ps1` 会先执行测试和窗口自检，再生成 `dist\微信收藏语音工具.exe`，并复制许可文件；窗口自检需要 Windows 图形会话。当前许可清单只对应其中记录了 SHA-256 的 EXE，重新构建后必须核对新增二进制及其许可。`package_source.ps1` 默认在项目的上一级目录生成 `wechat-favorites-tool-source.zip`，收入源码、测试和第三方许可文件。上传前仍应检查压缩包内容及个人修改过的源文件。
 
 命令行可用 `main.py --help` 查看。`--scan`、`--export` 分别需要 `--account`，导出还需要 `--output`；`--merge` 需要 `--folder` 和 `--output`。
 
@@ -47,4 +49,4 @@ py -3.12 -m venv .venv
 
 ## 许可与依赖
 
-仓库内自有源码与文档按 [MIT 许可证](LICENSE)提供。`cryptography`、`websocket-client`、Python 和 PyInstaller 等第三方组件有各自的许可证；MIT 不自动覆盖它们。WeFlow 是外部程序，不随本项目分发。如另行发布 EXE，应核对并随发布物提供实际打包组件所需的许可证和声明。贡献方式见[贡献说明](CONTRIBUTING.md)。
+仓库内自有源码与文档按 [MIT 许可证](LICENSE)提供。`cryptography`、`websocket-client`、Python 和 PyInstaller 等第三方组件有各自的许可证；MIT 不自动覆盖它们。WeFlow 是外部程序，不随本项目分发。EXE 的第三方许可清单见 `third_party_licenses/THIRD_PARTY_NOTICES.txt`。GitHub Release 应提供同时包含 EXE、`LICENSE` 和完整 `third_party_licenses` 目录的压缩包，而不是只有 EXE。清单还明确记录了尚未核实的二进制来源，发布前应完成核对。贡献方式见[贡献说明](CONTRIBUTING.md)。
